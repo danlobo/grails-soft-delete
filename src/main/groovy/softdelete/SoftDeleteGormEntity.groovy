@@ -104,8 +104,7 @@ trait SoftDeleteGormEntity<D> extends GormEntity<D> {
     }
 
     static BuildableCriteria createCriteria() {
-        def builder = currentGormStaticApi().createCriteria()
-        builder.eq('deleted', false)
+        def builder = new SoftDeleteBuildableCriteriaWrapper(currentGormStaticApi().createCriteria())
         return builder
     }
 
