@@ -10,7 +10,7 @@ buildscript {
 }
 
 version "0.1"
-group "softdelete"
+group "org.grails.plugins"
 
 apply plugin:"eclipse"
 apply plugin:"idea"
@@ -53,11 +53,11 @@ bootRun {
 bootRepackage.enabled = false
 grailsPublish {
     // TODO: Provide values here
-    user = 'danlobo'
-    key = 'key'
-    githubSlug = 'foo/bar'
+    user = bintrayUser
+    key = bintrayPass
+    githubSlug = 'danlobo/grails-soft-delete'
     license {
-        name = 'Apache-2.0'
+        name = 'MIT'
     }
     title = "Soft delete plugin"
     desc = "Provides Grails domain classes support for soft (or logical) deletes."
