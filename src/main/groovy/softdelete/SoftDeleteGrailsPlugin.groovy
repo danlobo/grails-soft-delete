@@ -16,7 +16,7 @@ class SoftDeleteGrailsPlugin extends Plugin {
     def author = "Daniel Lobo"
     def authorEmail = ""
     def description = '''\
-Brief summary/description of the plugin.
+Provides Grails domain classes support for soft (or logical) deletes.
 '''
     def profiles = ['web']
 
