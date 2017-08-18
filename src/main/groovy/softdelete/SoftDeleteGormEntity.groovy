@@ -171,9 +171,14 @@ trait SoftDeleteGormEntity<D> extends GormEntity<D> {
         if(methodName.startsWith('findAllBy') || methodName.startsWith('findBy') || methodName.startsWith('countBy')) {
             methodName += 'AndDeleted'
             if (arg.getClass().isArray()) {
-                arg = ((Object[]) arg).plus(false)
+                if (Map.isAssignableFrom(((Object[]) arg).last().getClass())) {
+                    Object[] oarg = (Object[]) arg
+                    arg = oarg[0..-2].plus(oarg.last()).plus(false).toArray()
+                } else {
+                    arg = ((Object[]) arg).plus(false)
+                }
             } else {
-                arg = [false]
+                arg = [arg, false].toArray()
             }
         }
         currentGormStaticApi().methodMissing(methodName, arg)
