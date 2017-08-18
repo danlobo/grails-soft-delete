@@ -178,7 +178,7 @@ trait SoftDeleteGormEntity<D> extends GormEntity<D> {
                     if (oarg.size() == 1) {
                         arg = [false, oarg[0]]
                     } else {
-                        arg = oarg[0..-2].plus(oarg.last()).plus(false).toArray()
+                        arg = oarg[0..-2].plus(false).plus(oarg.last()).toArray()
                     }
                 } else {
                     arg = ((Object[]) arg).plus(false)
